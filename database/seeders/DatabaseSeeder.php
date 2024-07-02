@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -30,5 +31,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Teacher::factory()->count(10)->create();
+        Subject::factory()->count(10)->create();
     }
 }
