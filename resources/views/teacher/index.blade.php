@@ -22,7 +22,11 @@
                         <td>
                             <a href="{{ route('teachers.show', ['teacher' => $teacher->id]) }}">Show</a>
                             <a href="{{ route('teachers.edit',['teacher' => $teacher])}}">Edit</a>
-                            <a href="">Delete</a>
+                           <form action="{{ route('teachers.destroy',['teacher' => $teacher])}}" class="d-inline" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="Delete" class="border-0 bg-transparent link-danger text-decoration-underline">
+                           </form>
                         </td>
                     </tr>
                 @endforeach
