@@ -21,7 +21,7 @@
                         <td>{{ $teacher->dob }}</td>
                         <td>
                             <a href="{{ route('teachers.show', ['teacher' => $teacher->id]) }}">Show</a>
-                            <a href="">Edit</a>
+                            <a href="{{ route('teachers.edit',['teacher' => $teacher])}}">Edit</a>
                             <a href="">Delete</a>
                         </td>
                     </tr>

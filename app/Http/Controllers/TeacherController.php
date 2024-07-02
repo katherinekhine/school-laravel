@@ -57,7 +57,9 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        //
+        return view('teacher.edit', [
+            'teacher' => $teacher
+        ]);
     }
 
     /**
@@ -65,7 +67,20 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'unique:teachers,email,' . $teacher->id],
+            'dob' => 'required',
+            'address' => 'required',
+        ]);
+
+        $teacher->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'dob' => $request->dob,
+            'address' => $request->address,
+        ]);
+        return redirect(route('teachers.index'));
     }
 
     /**
