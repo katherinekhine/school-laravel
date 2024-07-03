@@ -9,6 +9,7 @@
                     <th>Title</th>
                     <th>Detail</th>
                     <th>Teacher Name</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,6 +20,14 @@
                         <td>{{$sub->detail}}</td>
                         <td>
                             <a href="{{route('teachers.show',['teacher' => $sub->teacher])}}">{{$sub->teacher->name}}</a>
+                        </td>
+                        <td>
+                            <a href="">Edit</a>
+                           <form action="" class="d-inline" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="Delete" class="border-0 bg-transparent link-danger text-decoration-underline">
+                           </form>
                         </td>
                     </tr>
                 @endforeach
