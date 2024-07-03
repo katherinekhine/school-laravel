@@ -13,15 +13,15 @@
             </div>
             <div class="mb-3">
                 <label for="detail" class="form-label fw-bold">Detail:</label>
-                <input type="text" name="detail" id="detail" class="form-control" placeholder="Detail">
+                <textarea name="detail" id="detail" cols="30" rows="3" class="form-control" placeholder="Detail"></textarea>
                 @error('detail')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="teacherid" class="form-label fw-bold">Teacher ID:</label>
-                <input type="text" name="teacherid" id="teacherid" class="form-control" placeholder="Teacher ID">
-                @error('teacherid')
+                <label for="teacher_id" class="form-label fw-bold">Teacher ID:</label>
+                <input type="text" name="teacher_id" id="teacher_id" class="form-control" placeholder="Teacher ID">
+                @error('teacher_id')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>

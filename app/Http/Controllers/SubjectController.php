@@ -30,7 +30,13 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'detail' => 'required',
+            'teacher_id' => 'required',
+        ]);
+        Subject::create($validated);
+        return redirect(route('subjects.index'));
     }
 
     /**
