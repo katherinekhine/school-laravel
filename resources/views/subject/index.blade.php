@@ -2,7 +2,8 @@
 @section('content')
     <div class="container">
         <h1>List Of Subjects</h1>
-          <table class="table table-bordered table-sm table-striped">
+        <a href="{{ route('subjects.create') }}">Create</a>
+          <table class="table table-bordered table-sm table-striped mt-2">
             <thead>
                 <tr>
                     <th>ID</th>
