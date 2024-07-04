@@ -52,7 +52,7 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //
+        return view('subject.edit', ['subject' => $subject]);
     }
 
     /**
@@ -60,7 +60,18 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subject)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'detail' => 'required',
+            'teacher_id' => 'required',
+        ]);
+
+        $subject->update([
+            'title' => $request->title,
+            'detail' => $request->detail,
+            'teacher_id' => $request->teacher_id,
+        ]);
+        return redirect(route('subjects.index'));
     }
 
     /**

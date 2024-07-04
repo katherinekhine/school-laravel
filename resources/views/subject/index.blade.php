@@ -23,7 +23,7 @@
                             <a href="{{route('teachers.show',['teacher' => $sub->teacher])}}">{{$sub->teacher->name}}</a>
                         </td>
                         <td>
-                            <a href="">Edit</a>
+                            <a href="{{ route('subjects.edit',['subject' => $sub]) }}">Edit</a>
                            <form action="" class="d-inline" method="POST">
                             @csrf
                             @method('DELETE')
