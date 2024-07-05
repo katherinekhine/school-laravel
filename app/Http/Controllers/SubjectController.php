@@ -79,6 +79,7 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+        $subject->delete();
+        return redirect(route('subjects.index'));
     }
 }

@@ -24,10 +24,10 @@
                         </td>
                         <td>
                             <a href="{{ route('subjects.edit',['subject' => $sub]) }}">Edit</a>
-                           <form action="" class="d-inline" method="POST">
+                           <form action="{{route('subjects.destroy',['subject'=>$sub])}}" class="d-inline" method="POST">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="Delete" class="border-0 bg-transparent link-danger text-decoration-underline">
+                            <input type="submit" onclick="alert(Are you sure you want to delete)" value="Delete" class="border-0 bg-transparent link-danger text-decoration-underline">
                            </form>
                         </td>
                     </tr>
