@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <h1>List Of Subjects</h1>
-        <a href="{{ route('subjects.create') }}">Create</a>
+        <a href="{{ route('subjects.create') }}">Create New Subject</a>
           <table class="table table-bordered table-sm table-striped mt-2">
             <thead>
                 <tr>

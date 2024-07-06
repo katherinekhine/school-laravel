@@ -8,6 +8,6 @@
         <p class="fw-bold">{{ $teacher->email }}</p>
         <label for="address" class="fst-italic">Address</label>
        <address class="fw-bold">{{ $teacher->address}}</address>
-       <a href="{{route('teachers.index')}}">&lt;&lt;Back</a>
+       <a href="{{ url()-> previous() }}">&lt;&lt;Back</a>
     </div>
 @endsection
