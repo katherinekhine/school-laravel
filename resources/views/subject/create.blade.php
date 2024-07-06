@@ -26,6 +26,9 @@
                      <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                     @endforeach
                 </select>
+                 @error('teacher_id')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-3">
                 <a href="{{ url()->previous() }}" class="btn btn-outline-secondary">Back</a>
