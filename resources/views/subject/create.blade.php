@@ -19,14 +19,16 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="teacher_id" class="form-label fw-bold">Teacher ID:</label>
-                <input type="text" name="teacher_id" id="teacher_id" class="form-control" placeholder="Teacher ID">
-                @error('teacher_id')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
+                <label for="teacher_id" class="form-label">Teacher Name:</label>
+                <select name="teacher_id" id="teacher_id" class="form-control">
+                    <option value="">-- Choose Teacher Name --</option>
+                    @foreach ($teachers as $teacher )
+                     <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
-                <a href="{{ route('subjects.index')}}" class="btn btn-outline-secondary">Back</a>
+                <a href="{{ url()->previous() }}" class="btn btn-outline-secondary">Back</a>
                 <input type="submit" value="Create" class="btn btn-outline-primary">
             </div>
         </form>
