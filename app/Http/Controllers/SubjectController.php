@@ -55,7 +55,10 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        return view('subject.edit', ['subject' => $subject]);
+        return view('subject.edit', [
+            'subject' => $subject,
+            'teachers' => Teacher::all(),
+        ]);
     }
 
     /**

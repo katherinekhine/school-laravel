@@ -20,9 +20,14 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="teacher_id" class="form-label fw-bold">Teacher ID:</label>
-                <input type="text" name="teacher_id" id="teacher_id" class="form-control" placeholder="Teacher ID" value="{{$subject->teacher_id}}">
-                @error('teacher_id')
+                <label for="teacher_id" class="form-label">Teacher Name:</label>
+                <select name="teacher_id" id="teacher_id" class="form-control">
+                    <option value="">-- Choose Teacher Name --</option>
+                    @foreach ($teachers as $teacher )
+                     <option value="{{$teacher->id}}" {{$teacher->id == $subject->teacher->id ? 'selected':''}}>{{$teacher->name}}</option>
+                    @endforeach
+                </select>
+                 @error('teacher_id')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
