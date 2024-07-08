@@ -6,14 +6,14 @@
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label fw-bold">Title:</label>
-                <input type="text" name="title" id="title" class="form-control" placeholder="Title">
+                <input type="text" name="title" id="title" class="form-control" placeholder="Title" value="{{old('title')}}">
                 @error('title')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="detail" class="form-label fw-bold">Detail:</label>
-                <textarea name="detail" id="detail" cols="30" rows="3" class="form-control" placeholder="Detail"></textarea>
+                <textarea name="detail" id="detail" cols="30" rows="3" class="form-control" placeholder="Detail">{{old('detail')}}</textarea>
                 @error('detail')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
@@ -23,7 +23,7 @@
                 <select name="teacher_id" id="teacher_id" class="form-control">
                     <option value="">-- Choose Teacher Name --</option>
                     @foreach ($teachers as $teacher )
-                     <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                     <option value="{{$teacher->id}}" {{old('teacher_id') == $teacher->id ? 'selected' : ''}}>{{$teacher->name}}</option>
                     @endforeach
                 </select>
                  @error('teacher_id')

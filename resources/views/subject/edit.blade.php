@@ -24,7 +24,7 @@
                 <select name="teacher_id" id="teacher_id" class="form-control">
                     <option value="">-- Choose Teacher Name --</option>
                     @foreach ($teachers as $teacher )
-                     <option value="{{$teacher->id}}" {{$teacher->id == $subject->teacher->id ? 'selected':''}}>{{$teacher->name}}</option>
+                     <option value="{{$teacher->id}}" {{$teacher->id == old('teacher_id', $subject->teacher->id ) ? 'selected':''}}>{{$teacher->name}}</option>
                     @endforeach
                 </select>
                  @error('teacher_id')
