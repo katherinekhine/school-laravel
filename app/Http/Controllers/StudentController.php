@@ -12,7 +12,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        return view('subject.index', [
+            'students' => Student::paginate(10),
+        ]);
     }
 
     /**
