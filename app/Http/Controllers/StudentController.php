@@ -31,7 +31,16 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        return $request;
+        $photo_path = $request->file('photo')->store('photos');
+        Student::create([
+            'name' => $request->name,
+            'photo' => $photo_path,
+            'email' => $request->email,
+            'dob' => $request->dob,
+            'address' => $request->address,
+            'classroom_id' => $request->classroom_id,
+        ]);
+        return redirect(route('students.index'));
     }
 
     /**
