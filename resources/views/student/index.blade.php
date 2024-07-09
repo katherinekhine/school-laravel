@@ -21,7 +21,7 @@
                         <td>
                             <a href="{{route('students.show',['student' => $student]) }}" class="btn btn-link text-success">Show</a>
                             <a href="{{route('students.edit',['student' => $student]) }}" class="btn btn-link">Edit</a>
-                            <form action="{{route('students.destroy', ['student' => $student])}}" method="POST" class="d-inline">
+                            <form action="{{route('students.destroy', ['student' => $student])}}" method="POST" class="d-inline" onsubmit="return confirm('really want to delete?')">
                                 @csrf
                                 @method('DELETE')
                                 <input type="submit" value="Delete" class="btn btn-link text-danger">

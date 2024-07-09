@@ -22,7 +22,7 @@
                         <td>
                             <a href="{{ route('teachers.show', ['teacher' => $teacher->id]) }}" class="btn btn-link text-success">Show</a>
                             <a href="{{ route('teachers.edit',['teacher' => $teacher])}}" class="btn btn-link">Edit</a>
-                           <form action="{{ route('teachers.destroy',['teacher' => $teacher])}}" class="d-inline" method="POST">
+                           <form action="{{ route('teachers.destroy',['teacher' => $teacher])}}" class="d-inline" method="POST" onsubmit="return confirm('really want to delete?')">
                             @csrf
                             @method('DELETE')
                             <input type="submit" value="Delete" class="btn btn-link border-0 bg-transparent link-danger text-decoration-underline">
