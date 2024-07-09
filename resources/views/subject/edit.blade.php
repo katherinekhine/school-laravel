@@ -7,14 +7,14 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="title" class="form-label fw-bold">Title:</label>
-                <input type="text" name="title" id="title" class="form-control" placeholder="Title" value="{{$subject->title}}">
+                <input type="text" name="title" id="title" class="form-control" placeholder="Title" value="{{old('title') ?? $subject->title}}">
                 @error('title')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="detail" class="form-label fw-bold">Detail:</label>
-                <textarea name="detail" id="detail" cols="30" rows="3" class="form-control" placeholder="Detail">{{$subject->detail}}</textarea>
+                <textarea name="detail" id="detail" cols="30" rows="3" class="form-control" placeholder="Detail">{{old('detail') ?? $subject->detail}}</textarea>
                 @error('detail')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror

@@ -31,7 +31,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <a href="{{ url()->previous() }}" class="btn btn-outline-secondary">Back</a>
+                <a href="{{ route('subjects.index') }}" class="btn btn-outline-secondary">Back</a>
                 <input type="submit" value="Create" class="btn btn-outline-primary">
             </div>
         </form>
