@@ -66,7 +66,24 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'unique:students,email,' . $student->id],
+            'dob' => 'required',
+            'address' => 'required',
+            'classroom_id' => 'required',
+        ]);
+
+        $photo_path = $request->file('photo')->store('photos');
+        $student->update([
+            'name' => $request->name,
+            'photo' => $photo_path,
+            'email' => $request->email,
+            'dob' => $request->dob,
+            'address' => $request->address,
+            'classroom_id' => $request->classroom_id,
+        ]);
+        return redirect(route('students.index'));
     }
 
     /**
