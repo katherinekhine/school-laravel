@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStudentRequest;
+use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -66,26 +67,23 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(UpdateStudentRequest $request, Student $student)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => ['required', 'unique:students,email,' . $student->id],
-            'dob' => 'required',
-            'address' => 'required',
-            'classroom_id' => 'required',
-        ]);
-
-        $photo_path = $request->file('photo')->store('photos');
+        if ($request->hasFile('photo')) {
+            $photo_path = $request->file('photo')->store('photos');
+            $student->photo = $photo_path;
+        }
         $student->update([
             'name' => $request->name,
-            'photo' => $photo_path,
+            'photo' => $student->photo,
             'email' => $request->email,
-            'dob' => $request->dob,
             'address' => $request->address,
+            'dob' => $request->dob,
             'classroom_id' => $request->classroom_id,
         ]);
-        return redirect(route('students.index'));
+        return redirect(route('students.show', [
+            'student' => $student
+        ]));
     }
 
     /**

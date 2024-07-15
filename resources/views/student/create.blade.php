@@ -4,8 +4,11 @@
         <h1>
             {{ $student->exists() ? 'Edit Student' : 'Add New Student' }}
         </h1>
-        <form action="{{route('students.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{$student->exists ? route('students.update', ['student' => $student]) : route('students.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
+            @isset($student->exists)
+                @method('PUT')
+            @endisset
             <div class="mb-3">
                 <label for="name" class="form-label">Name:</label>
                 <input type="text" name="name" id="name" class="form-control @error('name')
@@ -67,6 +70,7 @@
                 @enderror
             </div>
             <div>
+                <a href="{{ route('students.index') }}" class="btn btn-outline-secondary">Back</a>
                 <input type="submit" value="{{$student->exists ? "Update" : "Add"}}" class="btn {{$student->exists ? "btn-outline-warning" : "btn-outline-primary"}}">
             </div>
         </form>
