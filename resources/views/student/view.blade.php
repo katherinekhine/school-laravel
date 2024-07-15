@@ -26,7 +26,7 @@
             <strong>{{$student->classroom_id}}</strong>
         </div>
         <div>
-            <a href="{{ route('students.index') }}" class="btn btn-outline-secondary">Back</a>
+            <a href="{{ url()-> previous() }}" class="btn btn-outline-secondary mt-2">Back</a>
         </div>
     </div>
 @endsection
