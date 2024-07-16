@@ -31,6 +31,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
+                            <a href="{{route('classrooms.index')}}" class="nav-link">Classrooms</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{route('subjects.index')}}" class="nav-link">Subjects</a>
                         </li>
                         <li class="nav-item">

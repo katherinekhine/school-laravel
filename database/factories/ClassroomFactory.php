@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Student;
+use App\Models\Subject;
+use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,10 @@ class ClassroomFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->sentence(3),
+            'subject_id' => Subject::all()->random(),
+            'student_id' => Student::all()->random(),
+            'teacher_id' => Teacher::all()->random(),
         ];
     }
 }
