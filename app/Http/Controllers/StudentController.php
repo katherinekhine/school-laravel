@@ -41,7 +41,6 @@ class StudentController extends Controller
             'email' => $request->email,
             'dob' => $request->dob,
             'address' => $request->address,
-            'classroom_id' => $request->classroom_id,
         ]);
         return redirect(route('students.index'));
     }
@@ -79,7 +78,6 @@ class StudentController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'dob' => $request->dob,
-            'classroom_id' => $request->classroom_id,
         ]);
         return redirect(route('students.show', [
             'student' => $student

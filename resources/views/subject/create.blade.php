@@ -19,18 +19,6 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="teacher_id" class="form-label">Teacher Name:</label>
-                <select name="teacher_id" id="teacher_id" class="form-control">
-                    <option value="">-- Choose Teacher Name --</option>
-                    @foreach ($teachers as $teacher )
-                     <option value="{{$teacher->id}}" {{old('teacher_id') == $teacher->id ? 'selected' : ''}}>{{$teacher->name}}</option>
-                    @endforeach
-                </select>
-                 @error('teacher_id')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
-            </div>
-            <div class="mb-3">
                 <a href="{{ route('subjects.index') }}" class="btn btn-outline-secondary">Back</a>
                 <input type="submit" value="Create" class="btn btn-outline-primary">
             </div>

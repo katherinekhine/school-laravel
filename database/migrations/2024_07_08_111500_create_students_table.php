@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->text('address');
             $table->date('dob');
-            $table->integer('classroom_id');
             $table->timestamps();
         });
     }

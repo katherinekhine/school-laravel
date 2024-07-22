@@ -22,7 +22,6 @@ class StudentFactory extends Factory
             'email' => fake()->email(),
             'address' => fake()->address(),
             'dob' => fake()->dateTimeBetween('-30 years', '-16 years'),
-            'classroom_id' => rand(1, 10),
         ];
     }
 }

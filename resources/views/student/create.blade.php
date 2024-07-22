@@ -55,20 +55,6 @@
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-            <div class="mb-3">
-                <label for="classroom_id" class="form-label">Class Room:</label>
-                <select name="classroom_id" id="classroom_id" class="form-control @error('classroom_id')
-                    {{'border-danger'}}
-                @enderror">
-                    <option value="">-- Choose Class</option>
-                    <option value="1" {{ 1 == old('classroom_id', $student->classroom_id) ? 'selected' : ' '}}>Class 1</option>
-                    <option value="2" {{ 2 == old('classroom_id', $student->classroom_id) ? 'selected' : ' '}}>Class 2</option>
-                    <option value="3" {{ 3 == old('classroom_id', $student->classroom_id) ? 'selected' : ' '}}>Class 3</option>
-                </select>
-                @error('classroom_id')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
-            </div>
             <div>
                 <a href="{{ route('students.index') }}" class="btn btn-outline-secondary">Back</a>
                 <input type="submit" value="{{$student->exists ? "Update" : "Add"}}" class="btn {{$student->exists ? "btn-outline-warning" : "btn-outline-primary"}}">

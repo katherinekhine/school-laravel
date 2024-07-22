@@ -22,7 +22,6 @@ class ClassroomFactory extends Factory
         return [
             'name' => fake()->sentence(3),
             'subject_id' => Subject::all()->random(),
-            'student_id' => Student::all()->random(),
             'teacher_id' => Teacher::all()->random(),
         ];
     }

@@ -9,7 +9,6 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Detail</th>
-                    <th>Teacher Name</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -19,9 +18,6 @@
                         <td>{{$sub->id}}</td>
                         <td>{{$sub->title}}</td>
                         <td>{{$sub->detail}}</td>
-                        <td>
-                            <a href="{{route('teachers.show',['teacher' => $sub->teacher])}}">{{$sub->teacher->name}}</a>
-                        </td>
                         <td>
                             <a href="{{ route('subjects.edit',['subject' => $sub]) }}">Edit</a>
                            <form action="{{route('subjects.destroy',['subject'=>$sub])}}" class="d-inline" method="POST" onsubmit="return confirm('really want to delete?')">

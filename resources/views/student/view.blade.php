@@ -22,10 +22,6 @@
             <strong>{{$student->address}}</strong>
         </div>
         <div>
-            <label for="">Class:</label>
-            <strong>{{$student->classroom_id}}</strong>
-        </div>
-        <div>
             <a href="{{ url()-> previous() }}" class="btn btn-outline-secondary mt-2">Back</a>
         </div>
     </div>

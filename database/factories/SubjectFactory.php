@@ -19,7 +19,6 @@ class SubjectFactory extends Factory
         return [
             'title' => fake()->catchPhrase,
             'detail' => fake()->sentence,
-            'teacher_id' => rand(1, 10),
         ];
     }
 }
