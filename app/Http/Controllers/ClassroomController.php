@@ -62,7 +62,9 @@ class ClassroomController extends Controller
     public function edit(Classroom $classroom)
     {
         return view('classroom.create', [
-            'classroom' => $classroom
+            'classroom' => $classroom,
+            'teachers' => Teacher::all(),
+            'subjects' => Subject::all(),
         ]);
     }
 
