@@ -13,16 +13,16 @@ class Classroom extends Model
 
     public function students()
     {
-        return $this->hasMany(Student::class);
+        return $this->belongsToMany(Student::class);
     }
 
     public function teacher()
     {
-        return $this->hasOne(Teacher::class);
+        return $this->belongsTo(Teacher::class);
     }
 
     public function subjects()
     {
-        return $this->hasOne(Subject::class);
+        return $this->belongsTo(Subject::class);
     }
 }

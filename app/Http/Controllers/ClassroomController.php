@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Classroom;
+use App\Models\Subject;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class ClassroomController extends Controller
@@ -12,7 +14,9 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        //
+        return view('classroom.index', [
+            'classrooms' => Classroom::paginate(10)
+        ]);
     }
 
     /**
@@ -20,7 +24,11 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        //
+        return view('classroom.create', [
+            'classroom' => new Classroom(),
+            'subjects' => Subject::all(),
+            'teachers' => Teacher::all(),
+        ]);
     }
 
     /**
@@ -28,7 +36,12 @@ class ClassroomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'detail' => 'required',
+            'subject_id' => 'required|exists:subjects,id',
+            'teacher_id' => 'required|exists:teachers,id',
+        ]);
     }
 
     /**
@@ -36,7 +49,9 @@ class ClassroomController extends Controller
      */
     public function show(Classroom $classroom)
     {
-        //
+        return view('classroom.create', [
+            'classroom' => $classroom
+        ]);
     }
 
     /**
