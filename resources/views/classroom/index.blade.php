@@ -17,6 +17,16 @@
                 @foreach ($classrooms as $class)
                     <tr>
                         <td>{{$class -> id}}</td>
+                        <td>{{$class -> title}}</td>
+                        <td>{{$class -> teacher->name}}</td>
+                        <td>{{$class->subject->title}}</td>
+                        <td>
+                            <a href="{{route('classrooms.show', ['classroom' => $class])}}" class="btn btn-link">Show</a>
+                            <a href="{{route('classrooms.edit', ['classroom' => $class])}}" class="btn btn-link">Edit</a>
+                            <form action="{{route('classrooms.destroy',['classroom'=>$class])}}" method="POST" class="d-inline">
+                                <input type="submit" value="Delete" class="btn btn-link">
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

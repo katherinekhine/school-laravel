@@ -35,6 +35,6 @@ class DatabaseSeeder extends Seeder
         Teacher::factory()->count(10)->create();
         Subject::factory()->count(10)->create();
         Student::factory()->count(50)->create();
-        Classroom::factory()->count(10)->create();
+        Classroom::factory()->count(15)->create();
     }
 }

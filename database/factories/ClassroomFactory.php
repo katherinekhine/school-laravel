@@ -20,9 +20,10 @@ class ClassroomFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->sentence(3),
-            'subject_id' => Subject::all()->random(),
-            'teacher_id' => Teacher::all()->random(),
+            'title' => 'Section - ' . fake()->word(2),
+            'detail' => fake()->word(7),
+            'subject_id' => '1',
+            'teacher_id' => '1',
         ];
     }
 }

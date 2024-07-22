@@ -21,7 +21,7 @@ class Classroom extends Model
         return $this->belongsTo(Teacher::class);
     }
 
-    public function subjects()
+    public function subject()
     {
         return $this->belongsTo(Subject::class);
     }

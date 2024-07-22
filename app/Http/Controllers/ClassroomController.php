@@ -42,6 +42,8 @@ class ClassroomController extends Controller
             'subject_id' => 'required|exists:subjects,id',
             'teacher_id' => 'required|exists:teachers,id',
         ]);
+        Classroom::create($request->all());
+        return redirect(route('classrooms.index'));
     }
 
     /**
@@ -59,7 +61,9 @@ class ClassroomController extends Controller
      */
     public function edit(Classroom $classroom)
     {
-        //
+        return view('classroom.create', [
+            'classroom' => $classroom
+        ]);
     }
 
     /**
@@ -67,7 +71,14 @@ class ClassroomController extends Controller
      */
     public function update(Request $request, Classroom $classroom)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'detail' => 'required',
+            'subject_id' => 'required|exists:subjects,id',
+            'teacher_id' => 'required|exists:teachers,id',
+        ]);
+        $classroom->update($request->all());
+        return redirect(route('classrooms.index'));
     }
 
     /**
@@ -75,6 +86,7 @@ class ClassroomController extends Controller
      */
     public function destroy(Classroom $classroom)
     {
-        //
+        $classroom->delete();
+        return redirect(route('classrooms.index'));
     }
 }
