@@ -46,7 +46,9 @@ class SubjectController extends Controller
      */
     public function show(Subject $subject)
     {
-        //
+        return view('subject.view', [
+            'subject' => $subject
+        ]);
     }
 
     /**
