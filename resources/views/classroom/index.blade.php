@@ -24,6 +24,8 @@
                             <a href="{{route('classrooms.show', ['classroom' => $class])}}" class="btn btn-link">Show</a>
                             <a href="{{route('classrooms.edit', ['classroom' => $class])}}" class="btn btn-link">Edit</a>
                             <form action="{{route('classrooms.destroy',['classroom'=>$class])}}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
                                 <input type="submit" value="Delete" class="btn btn-link">
                             </form>
                         </td>
