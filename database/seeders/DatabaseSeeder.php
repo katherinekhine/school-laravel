@@ -34,7 +34,12 @@ class DatabaseSeeder extends Seeder
 
         Teacher::factory()->count(10)->create();
         Subject::factory()->count(10)->create();
-        Student::factory()->count(50)->create();
-        Classroom::factory()->count(15)->create();
+
+        $classrooms = Classroom::factory()->count(15)->create();
+        Student::factory(70)->create()->each(function ($student) use ($classrooms) {
+            $student->classrooms()->attach(
+                $classrooms->random(rand(1, 15))->pluck('id')->toArray()
+            );
+        });
     }
 }

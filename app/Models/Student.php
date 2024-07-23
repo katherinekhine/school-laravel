@@ -12,4 +12,9 @@ class Student extends Model
     protected $fillable = ['name', 'email', 'photo', 'dob', 'address'];
     // <or>
     // protected $guarded = [];
+
+    public function classrooms()
+    {
+        return $this->belongsToMany(Classroom::class);
+    }
 }
