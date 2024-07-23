@@ -51,7 +51,7 @@ class ClassroomController extends Controller
      */
     public function show(Classroom $classroom)
     {
-        return view('classroom.create', [
+        return view('classroom.show', [
             'classroom' => $classroom
         ]);
     }
