@@ -11,4 +11,9 @@ class Teacher extends Model
 
     // ! must include if u use Teacher::create($validated);
     protected $fillable = ['name', 'email', 'address', 'dob'];
+
+    public function classrooms()
+    {
+        return $this->hasMany(Classroom::class);
+    }
 }

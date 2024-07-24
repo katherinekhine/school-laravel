@@ -22,6 +22,16 @@
             <strong>{{$student->address}}</strong>
         </div>
         <div>
+            <h3 class="text-decoration-underlilne">Enrolled Classes</h3>
+            <ul>
+                @foreach ($student->classrooms as $class)
+                    <li>
+                        <a href="{{ route('classrooms.show',['classroom'=>$class]) }}">{{$class->title}}</a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+        <div>
             <a href="{{ url()-> previous() }}" class="btn btn-outline-secondary mt-2">Back</a>
         </div>
     </div>

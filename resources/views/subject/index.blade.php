@@ -19,7 +19,8 @@
                         <td>{{$sub->title}}</td>
                         <td>{{$sub->detail}}</td>
                         <td>
-                            <a href="{{ route('subjects.edit',['subject' => $sub]) }}">Edit</a>
+                            <a href="{{ route('subjects.show',['subject'=> $sub])}}" class="btn btn-link text-success">Show</a>
+                            <a href="{{ route('subjects.edit',['subject' => $sub]) }}" class="btn btn-link text-success">Edit</a>
                            <form action="{{route('subjects.destroy',['subject'=>$sub])}}" class="d-inline" method="POST" onsubmit="return confirm('really want to delete?')">
                             @csrf
                             @method('DELETE')
