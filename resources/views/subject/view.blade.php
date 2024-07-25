@@ -12,5 +12,7 @@
                 </li>
             @endforeach
         </ul>
+        <a href="{{ url()-> previous() }}" class="btn btn-outline-secondary mt-2">Back</a>
+
     </div>
 @endsection

@@ -18,8 +18,9 @@
             <label for="teacher_id">Teacher:</label>
             <strong>{{$classroom->teacher->name}}</strong>
         </div>
+        <a href="{{ url()-> previous() }}" class="btn btn-outline-secondary mt-2">Back</a>
         <div>
-            <h5 class="text-decoration-underline">Registered Students - {{ $classroom->students->count()}}</h5>
+            <h5 class="text-decoration-underline mt-2">Registered Students - {{ $classroom->students->count()}}</h5>
             <table class="table table-border table-sm table-stripped">
                 <thead>
                     <tr>
