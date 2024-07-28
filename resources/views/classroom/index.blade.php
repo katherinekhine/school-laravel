@@ -23,10 +23,10 @@
                         <td>
                             <a href="{{route('classrooms.show', ['classroom' => $class])}}" class="btn btn-link">Show</a>
                             <a href="{{route('classrooms.edit', ['classroom' => $class])}}" class="btn btn-link">Edit</a>
-                            <form action="{{route('classrooms.destroy',['classroom'=>$class])}}" method="POST" class="d-inline">
+                            <form action="{{route('classrooms.destroy',['classroom'=>$class])}}" method="POST" class="d-inline" onsubmit="return confirm('really want to delete?')">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="Delete" class="btn btn-link">
+                                <input type="submit" value="Delete" class="btn btn-link text-danger">
                             </form>
                         </td>
                     </tr>

@@ -24,7 +24,7 @@
                            <form action="{{route('subjects.destroy',['subject'=>$sub])}}" class="d-inline" method="POST" onsubmit="return confirm('really want to delete?')">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" onclick="alert(Are you sure you want to delete)" value="Delete" class="border-0 bg-transparent link-danger text-decoration-underline">
+                            <input type="submit" value="Delete" class="border-0 bg-transparent link-danger text-decoration-underline">
                            </form>
                         </td>
                     </tr>
